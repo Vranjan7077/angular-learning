@@ -1,0 +1,25 @@
+<app-card>
+  <div title>1) FormControl (Single Input State)</div>
+
+  <div content>
+    <div class="demo">
+      <div class="field">
+        <label for="control-name">Name</label>
+        <input id="control-name" type="text" [formControl]="nameControl" placeholder="Type your name" />
+        <p class="hint">This input is directly connected to one <code>FormControl</code>.</p>
+      </div>
+
+      <div class="actions">
+        <button type="button" (click)="setExampleName()">Set Demo Value</button>
+        <button type="button" class="secondary" (click)="resetName()">Reset</button>
+      </div>
+
+      <pre>{{ {
+        value: nameControl.value,
+        touched: nameControl.touched,
+        dirty: nameControl.dirty,
+        valid: nameControl.valid
+      } | json }}</pre>
+    </div>
+  </div>
+</app-card>

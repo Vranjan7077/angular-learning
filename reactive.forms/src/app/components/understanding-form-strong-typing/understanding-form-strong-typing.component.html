@@ -1,0 +1,27 @@
+<app-card>
+  <div title>9) Strongly Typed Forms</div>
+
+  <div content>
+    <form [formGroup]="form" class="demo" (ngSubmit)="submitProfile()">
+      <div class="field">
+        <label for="typed-name">Name</label>
+        <input id="typed-name" formControlName="name" />
+      </div>
+
+      <div class="field">
+        <label for="typed-email">Email</label>
+        <input id="typed-email" formControlName="email" />
+      </div>
+
+      <div class="actions">
+        <button type="submit">Submit</button>
+        <button type="button" class="secondary" (click)="resetProfile()">Reset</button>
+      </div>
+    </form>
+
+    <pre>{{ {
+      currentValue: form.getRawValue(),
+      submittedProfile: submittedProfile
+    } | json }}</pre>
+  </div>
+</app-card>

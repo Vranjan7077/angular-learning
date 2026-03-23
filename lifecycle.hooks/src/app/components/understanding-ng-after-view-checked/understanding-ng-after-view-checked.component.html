@@ -1,0 +1,10 @@
+<app-card>
+  <div title>ngAfterViewChecked - Generic Service Path</div>
+  <p content>Loaded after first view check from `/subregion/southern europe` via `getByServicePath`.</p>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="30" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

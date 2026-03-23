@@ -1,0 +1,8 @@
+<app-card>
+    <div title>Output: Child -> Parent</div>
+
+    <div content>
+        <p>Child emits an event and parent reacts by selecting next API post.</p>
+        <button type="button" (click)="nextPostRequested.emit()">Load Next Post</button>
+    </div>
+</app-card>

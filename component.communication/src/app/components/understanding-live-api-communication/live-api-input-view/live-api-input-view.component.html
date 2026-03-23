@@ -1,0 +1,9 @@
+<app-card>
+    <div title>Input: Parent -> Child</div>
+
+    <div content>
+        <p>Parent passes current API user to this child via <code>&#64;Input()</code>.</p>
+        <p><strong>Name:</strong> {{ user?.name || 'N/A' }}</p>
+        <p><strong>Email:</strong> {{ user?.email || 'N/A' }}</p>
+    </div>
+</app-card>

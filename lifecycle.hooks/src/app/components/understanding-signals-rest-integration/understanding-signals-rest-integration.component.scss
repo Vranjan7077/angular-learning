@@ -1,0 +1,17 @@
+.filter-control {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

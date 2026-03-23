@@ -1,0 +1,21 @@
+<app-card>
+  <div title>10) valueChanges (Live Stream)</div>
+
+  <div content>
+    <div class="demo">
+      <div class="field">
+        <label for="changes-search">Search</label>
+        <input id="changes-search" [formControl]="searchControl" placeholder="Type to trigger valueChanges" />
+      </div>
+
+      <div class="actions">
+        <button type="button" class="secondary" (click)="clearHistory()">Clear History</button>
+      </div>
+
+      <pre>{{ {
+        latestValue: latestValue,
+        valueHistory: valueHistory
+      } | json }}</pre>
+    </div>
+  </div>
+</app-card>

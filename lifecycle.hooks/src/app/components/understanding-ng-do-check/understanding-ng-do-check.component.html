@@ -1,0 +1,11 @@
+<app-card>
+  <div title>ngDoCheck - Manual Query Diff</div>
+  <p content>Current query: "{{ query }}"</p>
+  <p content>Loaded from API (`/name/{{ query }}?fullText=true`): {{ countries.length }}</p>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="30" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

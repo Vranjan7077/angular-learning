@@ -1,0 +1,23 @@
+<app-card>
+  <div title>4) Built-in Validators</div>
+
+  <div content>
+    <form [formGroup]="form" class="demo">
+      <div class="field">
+        <label for="validators-email">Email</label>
+        <input id="validators-email" formControlName="email" placeholder="name@example.com" />
+        <p class="hint">Applied validators: <code>required</code> + <code>email</code>.</p>
+        <p class="error" *ngIf="emailControl.invalid && emailControl.touched">
+          {{ emailErrorMessage }}
+        </p>
+      </div>
+    </form>
+
+    <pre>{{ {
+      value: emailControl.value,
+      errors: emailControl.errors,
+      touched: emailControl.touched,
+      valid: emailControl.valid
+    } | json }}</pre>
+  </div>
+</app-card>

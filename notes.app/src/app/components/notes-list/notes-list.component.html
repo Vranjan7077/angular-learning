@@ -1,0 +1,43 @@
+<div class="notes-list">
+
+    <div class="notes-header">
+        <h2>My Notes <span>({{ notes.length }})</span></h2>
+        <button *ngIf="notes.length" (click)="onClearAll()" class="btn-clear">
+            Clear All
+        </button>
+    </div>
+
+    <div class="empty-state" *ngIf="notes.length === 0">
+        <p>No notes yet. Start by adding one!</p>
+    </div>
+
+    <div class="note-card" *ngFor="let note of notes" [class.favourite]="note.isFavourite">
+
+        <div class="note-card__body">
+            <div class="note-card__title-row">
+                <h3>{{ note.title }}</h3>
+                <button class="btn-favourite" (click)="onToggleFavourite(note)">
+                    {{ note.isFavourite ? '★' : '☆' }}
+                </button>
+            </div>
+
+            <p [class.collapsed]="!isExpanded(note.id)">{{ note.content }}</p>
+            <span class="toggle-preview" (click)="togglePreview(note.id)">
+                {{ isExpanded(note.id) ? 'Show less ▲' : 'Show more ▼' }}
+            </span>
+
+            <small>{{ note.updatedAt | date: 'dd MMM yyyy, h:mm a' }}</small>
+        </div>
+
+        <div class="note-card__actions">
+            <button (click)="onEdit(note)" class="btn-edit">Edit</button>
+            <button (click)="onDelete(note.id)" class="btn-delete">Delete</button>
+        </div>
+
+    </div>
+
+</div>
+
+<app-confirmation-modal [isVisible]="showModal" [title]="modalTitle" [message]="modalMessage" confirmLabel="Yes, Delete"
+    cancelLabel="Cancel" (confirmed)="onModalConfirmed()" (cancelled)="onModalCancelled()">
+</app-confirmation-modal>

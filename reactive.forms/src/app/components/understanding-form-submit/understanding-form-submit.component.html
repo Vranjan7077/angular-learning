@@ -1,0 +1,22 @@
+<app-card>
+  <div title>3) Form Submit (ngSubmit Flow)</div>
+
+  <div content>
+    <form [formGroup]="form" class="demo" (ngSubmit)="submit()">
+      <div class="field">
+        <label for="submit-name">Name</label>
+        <input id="submit-name" formControlName="name" placeholder="Type before submit" />
+      </div>
+
+      <div class="actions">
+        <button type="submit">Submit</button>
+        <button type="button" class="secondary" (click)="clearSubmission()">Clear Output</button>
+      </div>
+    </form>
+
+    <pre>{{ {
+      formValue: form.getRawValue(),
+      submittedValue: submittedValue
+    } | json }}</pre>
+  </div>
+</app-card>

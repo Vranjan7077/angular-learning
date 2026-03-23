@@ -1,0 +1,9 @@
+<app-card>
+    <div title>Basic Interface</div>
+
+    <div content>
+        <ng-container *ngIf="user$ | async as user">
+            <p>{{ user.name }} - {{ user.email }}</p>
+        </ng-container>
+    </div>
+</app-card>

@@ -1,0 +1,29 @@
+<app-card>
+  <div title>Attribute Binding (Posts API)</div>
+
+  <div content class="attribute-binding-demo">
+    <p class="intro">
+      This example uses attribute binding for values like
+      <code>[attr.aria-label]</code>, <code>[attr.title]</code>, and
+      <code>[attr.data-post-id]</code>.
+    </p>
+
+    <p *ngIf="isLoading" class="status">Loading posts...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <div *ngIf="!isLoading && !errorMessage" class="post-list">
+      <article
+        *ngFor="let post of posts"
+        class="post-card"
+        [attr.aria-label]="'Post ' + post.id + ' by user ' + post.userId"
+        [attr.title]="post.title"
+        [attr.data-post-id]="post.id"
+        [attr.data-user-id]="post.userId"
+      >
+        <p class="eyebrow">User {{ post.userId }} · Post {{ post.id }}</p>
+        <h4>{{ post.title }}</h4>
+        <p>{{ post.body }}</p>
+      </article>
+    </div>
+  </div>
+</app-card>

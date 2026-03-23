@@ -1,0 +1,30 @@
+<app-card>
+  <div title>Translation Preview</div>
+
+  <div content class="card-section">
+    <p class="section-text">
+      The translated text updates when you change the selected language.
+    </p>
+
+    <div class="message-box">
+      <p class="message-label">Greeting</p>
+      <h2 class="translated-heading">{{ "greeting" | translate }}</h2>
+    </div>
+
+    <div class="message-box" *ngIf="userName; else emptyState">
+      <p class="message-label">Welcome message</p>
+      <p class="welcome-message">
+        {{ "welcome" | translate: { name: userName } }}
+      </p>
+    </div>
+
+    <ng-template #emptyState>
+      <div class="message-box muted">
+        <p class="message-label">Welcome message</p>
+        <p class="welcome-message">
+          Enter your name to see the personalized translation.
+        </p>
+      </div>
+    </ng-template>
+  </div>
+</app-card>

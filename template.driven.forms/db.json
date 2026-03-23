@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "Developer"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "QA"
+    },
+    {
+      "id": "3",
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "role": "Manager"
+    },
+    {
+      "id": "4",
+      "name": "Alice Williams",
+      "email": "alice@example.com",
+      "role": "Designer"
+    },
+    {
+      "id": "5",
+      "name": "Charlie Brown",
+      "email": "charlie@example.com",
+      "role": "Support"
+    },
+    {
+      "id": "6",
+      "name": "Eve Davis",
+      "email": "eve@example.com",
+      "role": "HR"
+    },
+    {
+      "id": "7",
+      "name": "Frank Miller",
+      "email": "frank@example.com",
+      "role": "Sales"
+    },
+    {
+      "id": "8",
+      "name": "Grace Lee",
+      "email": "grace@example.com",
+      "role": "Marketing"
+    }
+  ]
+}

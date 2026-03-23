@@ -1,0 +1,13 @@
+<app-card>
+    <div title>Signals Sender</div>
+
+    <div content>
+        <p>
+            Updates a shared signal via <code>SignalsService.updateMessage(...)</code>.
+        </p>
+        <div class="input-action">
+            <input #messageBox type="text" placeholder="Type Signals message" aria-label="Signals message input" />
+            <button type="button" (click)="sendMessage(messageBox.value)">Send Message</button>
+        </div>
+    </div>
+</app-card>

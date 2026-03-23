@@ -1,0 +1,9 @@
+<app-card>
+    <div title>Service Receiver</div>
+
+    <div content>
+        <p><strong>Shared Service Stream:</strong> {{ communicationService.sharedMessage$ | async }}</p>
+        <p><strong>BehaviorSubject:</strong> {{ communicationService.behaviorMessage$ | async }}</p>
+        <p><strong>Signal:</strong> {{ communicationService.signalMessage() }}</p>
+    </div>
+</app-card>

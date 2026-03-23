@@ -1,0 +1,57 @@
+.property-binding-demo {
+  display: grid;
+  gap: 16px;
+}
+
+.intro,
+.status {
+  margin: 0;
+  color: #334155;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.photo-card {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #dbe4ff;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.photo-meta h4,
+.photo-meta p {
+  margin: 0;
+}
+
+.photo-meta h4 {
+  color: #1e3a8a;
+  font-size: 1rem;
+}
+
+.photo-meta p {
+  color: #475569;
+  font-size: 0.92rem;
+}

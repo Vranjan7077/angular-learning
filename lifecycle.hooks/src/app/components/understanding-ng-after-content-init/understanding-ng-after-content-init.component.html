@@ -1,0 +1,10 @@
+<app-card>
+  <div title>ngAfterContentInit - Independent Countries</div>
+  <p content>Loaded from API (`/independent?status=true`): {{ countries.length }}</p>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="30" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

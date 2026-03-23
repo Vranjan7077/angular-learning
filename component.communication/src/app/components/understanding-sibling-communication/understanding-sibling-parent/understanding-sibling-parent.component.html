@@ -1,0 +1,17 @@
+<app-card>
+    <div title>Sibling Communication Via Parent</div>
+
+    <div content>
+        <p>
+            Parent holds shared state and coordinates data flow between sibling components.
+        </p>
+        <p>
+            <strong>Parent shared state:</strong>
+            <code>{{ sharedMessage }}</code>
+        </p>
+
+        <app-understanding-sibling-a (messageChange)="onMessageFromSiblingA($event)"></app-understanding-sibling-a>
+        <app-understanding-sibling-b [message]="sharedMessage"></app-understanding-sibling-b>
+    </div>
+</app-card>
+

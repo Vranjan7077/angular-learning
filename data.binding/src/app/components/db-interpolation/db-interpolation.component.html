@@ -1,0 +1,34 @@
+<app-card>
+  <div title>Interpolation (Users API)</div>
+
+  <div content class="interpolation-demo">
+    <p class="intro">
+      This example uses interpolation to render API values like
+      <code>{{ '{{ user.name }}' }}</code>,
+      <code>{{ '{{ user.email }}' }}</code>, and
+      <code>{{ '{{ user.company.name }}' }}</code>.
+    </p>
+
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <ng-container *ngIf="users$ | async as users; else loading">
+      <div *ngIf="users.length; else emptyState" class="user-grid">
+        <article *ngFor="let user of users" class="user-card">
+          <p class="eyebrow">User #{{ user.id }}</p>
+          <h4>{{ user.name }}</h4>
+          <p>{{ user.email }}</p>
+          <p>{{ user.company.name }}</p>
+          <p>Contact: {{ user.name }} can be reached at {{ user.email }}</p>
+        </article>
+      </div>
+    </ng-container>
+
+    <ng-template #loading>
+      <p class="status">Loading users...</p>
+    </ng-template>
+
+    <ng-template #emptyState>
+      <p class="status">No users available.</p>
+    </ng-template>
+  </div>
+</app-card>

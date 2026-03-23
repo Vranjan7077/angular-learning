@@ -1,0 +1,31 @@
+<app-card>
+  <div title>6) FormArray (Dynamic Controls)</div>
+
+  <div content>
+    <form [formGroup]="form" class="demo" (ngSubmit)="submitSkills()">
+      <div class="field">
+        <label>Skills</label>
+        <p class="hint">FormArray lets you add/remove controls at runtime.</p>
+
+        <div class="array-list">
+          <div class="array-item" *ngFor="let skillControl of skillsControls; let i = index">
+            <input [formControl]="skillControl" [placeholder]="'Skill #' + (i + 1)" />
+            <button type="button" class="secondary" (click)="removeSkill(i)" [disabled]="skills.length === 1">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" (click)="addSkill()">Add Skill</button>
+        <button type="submit">Submit Skills</button>
+      </div>
+    </form>
+
+    <pre>{{ {
+      currentValue: form.getRawValue(),
+      submittedSkills: submittedSkills
+    } | json }}</pre>
+  </div>
+</app-card>

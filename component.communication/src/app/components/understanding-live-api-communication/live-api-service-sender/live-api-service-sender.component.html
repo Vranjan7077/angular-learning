@@ -1,0 +1,15 @@
+<app-card>
+    <div title>Service Sender</div>
+
+    <div content>
+        <p>
+            Publishes same message to Shared Service stream, BehaviorSubject, and Signal.
+        </p>
+        <button class="primary-publish-button" type="button" (click)="publishApiData()">Publish Current API Data</button>
+        <div class="input-action">
+            <input #customBox type="text" placeholder="Send custom message to all channels"
+                aria-label="Custom message" />
+            <button type="button" (click)="publishCustomMessage(customBox.value)">Publish Custom</button>
+        </div>
+    </div>
+</app-card>

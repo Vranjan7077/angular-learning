@@ -1,0 +1,11 @@
+<app-card>
+    <div title>View Child Parent Component</div>
+
+    <div content>
+        <p>
+            Parent uses <code>&#64;ViewChild(UnderstandingViewChildComponent)</code> to get child instance access.
+        </p>
+        <app-understanding-view-child></app-understanding-view-child>
+        <button type="button" (click)="callChild()">Call Child sayHello()</button>
+    </div>
+</app-card>

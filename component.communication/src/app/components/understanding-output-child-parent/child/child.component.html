@@ -1,0 +1,12 @@
+<app-card>
+    <div title>Child Component</div>
+
+    <div content>
+        <p><strong>Child Component</strong> emits an event to parent.</p>
+        <p>
+            Child emits using:
+            <code> &#64;Output() notifyParent = new EventEmitter&lt;string&gt;()</code>
+        </p>
+        <button type="button" (click)="sendMessageToParent()">Send Message To Parent</button>
+    </div>
+</app-card>

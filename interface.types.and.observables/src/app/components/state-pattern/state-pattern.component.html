@@ -1,0 +1,23 @@
+<app-card>
+    <div title>State Pattern</div>
+
+    <div content class="state-pattern" *ngIf="state$ | async as state">
+        <p class="hint">
+            Current state: <code>{{ state.status }}</code>
+        </p>
+
+        <div class="actions">
+            <button class="btn btn-primary" type="button" (click)="loadUsers()">Load Users</button>
+            <button class="btn btn-secondary" type="button" (click)="loadUsers(true)">Load Error</button>
+            <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
+        </div>
+
+        <p class="status" *ngIf="state.status === 'idle'">Click Load Users.</p>
+        <p class="status" *ngIf="state.status === 'loading'">Loading...</p>
+        <p class="status error" *ngIf="state.status === 'error'">{{ state.error }}</p>
+
+        <ul class="user-list" *ngIf="state.status === 'success'">
+            <li *ngFor="let user of state.users">{{ user.name }}</li>
+        </ul>
+    </div>
+</app-card>

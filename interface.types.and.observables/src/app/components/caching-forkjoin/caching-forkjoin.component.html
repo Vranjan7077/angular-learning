@@ -1,0 +1,31 @@
+<app-card>
+    <div title>Caching + forkJoin</div>
+
+    <div content class="caching-forkjoin">
+        <p class="hint">
+            `Load Cached User` uses in-memory cache. `Load User + Posts` uses <code>forkJoin</code>.
+        </p>
+
+        <div class="actions">
+            <button class="btn btn-primary" type="button" [disabled]="isLoading" (click)="loadCachedUser()">Load Cached User</button>
+            <button class="btn btn-primary" type="button" [disabled]="isLoading" (click)="loadUserAndPosts()">Load User + Posts</button>
+            <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
+        </div>
+
+        <p class="status" *ngIf="isLoading">Loading...</p>
+        <p class="status error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <div class="block" *ngIf="cachedUser">
+            <h4>Cached User Result</h4>
+            <p>{{ cachedUser.user.name }} (fromCache: {{ cachedUser.fromCache }})</p>
+        </div>
+
+        <div class="block" *ngIf="combinedResult">
+            <h4>forkJoin Result</h4>
+            <p>User: {{ combinedResult.user.name }}</p>
+            <p>Posts: {{ combinedResult.posts.length }}</p>
+        </div>
+
+        <p class="status" *ngIf="!isLoading && !errorMessage && !cachedUser && !combinedResult">Click an action.</p>
+    </div>
+</app-card>

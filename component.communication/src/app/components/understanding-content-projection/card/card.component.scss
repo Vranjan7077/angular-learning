@@ -1,0 +1,22 @@
+.projection-card {
+  border: 1px solid #dbe4ff;
+  border-radius: 14px;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  height: auto;
+  box-sizing: border-box;
+}
+
+.projection-card__title {
+  margin: 0 0 8px;
+}
+
+.projection-card__content {
+  margin-bottom: 8px;
+}
+
+.projection-card__extra {
+  color: #4b5563;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,29 @@
+<app-card>
+  <div title>8) Simple custom rule (age must be 18+)</div>
+
+  <div content>
+    <p class="lesson-text">
+      This is not a built-in Angular validator. We define a custom business rule in the template.
+    </p>
+
+    <form class="demo-form">
+      <div class="field">
+        <label for="age">Age</label>
+        <input id="age" type="number" name="age" ngModel #ageCtrl="ngModel" />
+        <span class="hint">Allowed minimum age: {{ minimumAllowedAge }}</span>
+        <div class="error" *ngIf="isUnderAge(ageCtrl.value) && ageCtrl.touched">
+          Age must be {{ minimumAllowedAge }} or above.
+        </div>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">current age: {{ ageCtrl.value || '(empty)' }}</span>
+        <span class="status-item">rule passed: {{ !isUnderAge(ageCtrl.value) }}</span>
+        <span class="status-item">touched: {{ ageCtrl.touched }}</span>
+        <span class="status-item">dirty: {{ ageCtrl.dirty }}</span>
+      </div>
+    </div>
+  </div>
+</app-card>

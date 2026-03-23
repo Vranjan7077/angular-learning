@@ -1,0 +1,29 @@
+<app-card>
+  <div title>2) FormGroup (Combine Controls)</div>
+
+  <div content>
+    <form [formGroup]="userForm" class="demo">
+      <div class="field">
+        <label for="group-name">Name</label>
+        <input id="group-name" formControlName="name" placeholder="Enter name" />
+      </div>
+
+      <div class="field">
+        <label for="group-email">Email</label>
+        <input id="group-email" formControlName="email" placeholder="Enter email" />
+      </div>
+
+      <div class="actions">
+        <button type="button" (click)="fillDemoData()">Fill Demo Data</button>
+        <button type="button" class="secondary" (click)="resetForm()">Reset</button>
+      </div>
+    </form>
+
+    <pre>{{ {
+      value: userForm.getRawValue(),
+      touched: userForm.touched,
+      dirty: userForm.dirty,
+      valid: userForm.valid
+    } | json }}</pre>
+  </div>
+</app-card>

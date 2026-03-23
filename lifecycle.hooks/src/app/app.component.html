@@ -1,0 +1,36 @@
+<h1 class="page-title">Angular Lifecycle Hooks</h1>
+<p class="page-subtitle">
+  This page demonstrates Angular lifecycle hooks using separate standalone components that call REST Countries API
+  endpoints. Each hook card maps to a different endpoint pattern so you can observe exactly when hook execution happens
+  and how API-driven UI updates behave through component creation, change detection, view/content checks, and teardown.
+</p>
+
+<div class="container single-column controls">
+  <button type="button" (click)="nextRegion()">Change Region ({{ selectedRegion }})</button>
+  <button type="button" (click)="nextSearchTerm()">Change Full Name ({{ selectedSearchTerm }})</button>
+  <button type="button" (click)="nextAlphaCode()">Change Alpha Code ({{ selectedAlphaCode }})</button>
+  <button type="button" (click)="toggleOnDestroyDemo()">
+    {{ showOnDestroyDemo ? 'Unmount ngOnDestroy Demo' : 'Mount ngOnDestroy Demo' }}
+  </button>
+</div>
+
+<div class="container">
+  <app-understanding-ng-on-init></app-understanding-ng-on-init>
+  <app-understanding-ng-on-changes [region]="selectedRegion"
+    [alphaCode]="selectedAlphaCode"></app-understanding-ng-on-changes>
+  <app-understanding-ng-do-check [query]="selectedSearchTerm"></app-understanding-ng-do-check>
+  <app-understanding-ng-after-content-init></app-understanding-ng-after-content-init>
+  <app-understanding-ng-after-content-checked></app-understanding-ng-after-content-checked>
+  <app-understanding-ng-after-view-init></app-understanding-ng-after-view-init>
+  <app-understanding-ng-after-view-checked></app-understanding-ng-after-view-checked>
+  <app-understanding-ng-on-destroy *ngIf="showOnDestroyDemo"></app-understanding-ng-on-destroy>
+  <app-understanding-on-push-change-detection></app-understanding-on-push-change-detection>
+  <app-understanding-signals-rest-integration></app-understanding-signals-rest-integration>
+  <app-understanding-lifecycle-logger-panel
+    [region]="selectedRegion"
+    [alphaCode]="selectedAlphaCode"
+  ></app-understanding-lifecycle-logger-panel>
+  <app-understanding-population-sort-demo></app-understanding-population-sort-demo>
+  <app-understanding-live-country-search-switchmap></app-understanding-live-country-search-switchmap>
+  <app-understanding-region-filter-dropdown></app-understanding-region-filter-dropdown>
+</div>

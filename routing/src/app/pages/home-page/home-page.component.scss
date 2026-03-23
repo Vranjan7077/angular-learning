@@ -1,0 +1,64 @@
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.concept-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+
+  p {
+    margin: 0;
+    color: #556677;
+    line-height: 1.6;
+  }
+
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+  }
+}
+
+.example-line {
+  color: #16324f;
+
+  code {
+    color: #0f4c81;
+    font-weight: 700;
+  }
+}
+
+.note-line {
+  font-size: 0.95rem;
+
+  strong {
+    color: #16324f;
+  }
+
+  code {
+    color: #0f4c81;
+    font-weight: 700;
+  }
+}
+
+.teaching-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #556677;
+  line-height: 1.8;
+
+  code {
+    color: #0f4c81;
+    font-weight: 700;
+  }
+}
+
+.ordered-list {
+  padding-left: 22px;
+}

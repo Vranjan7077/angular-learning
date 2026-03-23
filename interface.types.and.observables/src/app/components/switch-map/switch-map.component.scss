@@ -1,0 +1,52 @@
+.switch-map {
+  display: grid;
+  gap: 10px;
+}
+
+.search-input {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #1976d2;
+}
+
+.hint {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.loader,
+.error {
+  margin: 0;
+  font-size: 14px;
+}
+
+.loader {
+  color: #1976d2;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+.user-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.user-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+}

@@ -1,0 +1,41 @@
+.not-found-page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.not-found-card {
+  text-align: center;
+}
+
+.status-code {
+  margin: 0 0 8px;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #1976d2;
+}
+
+.not-found-card .page-intro {
+  max-width: 48ch;
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.secondary-link {
+  display: inline-flex;
+  align-items: center;
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

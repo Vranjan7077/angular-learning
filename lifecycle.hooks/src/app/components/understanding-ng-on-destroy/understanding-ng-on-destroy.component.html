@@ -1,0 +1,12 @@
+<app-card>
+  <div title>ngOnDestroy - Cleanup Polling + Extra Endpoints</div>
+  <p content>Refresh count: {{ refreshCount }}</p>
+  <p content>Current API endpoint: {{ currentEndpoint }}</p>
+  <p content>Unmount this component to stop polling.</p>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="30" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

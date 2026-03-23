@@ -1,0 +1,21 @@
+<app-card>
+    <div title>SwitchMap Search</div>
+
+    <div content class="switch-map">
+        <input [formControl]="search" placeholder="Search" class="search-input" />
+
+        <p class="loader" *ngIf="isLoading">Loading...</p>
+        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <ng-container *ngIf="users$ | async as users">
+            <p class="hint" *ngIf="users.length > 0">User List:</p>
+            <p class="hint" *ngIf="users.length === 0">No users found.</p>
+
+            <ul class="user-list" *ngIf="users.length > 0">
+                <li class="user-item" *ngFor="let user of users">
+                    {{ user.name }}
+                </li>
+            </ul>
+        </ng-container>
+    </div>
+</app-card>

@@ -1,0 +1,79 @@
+<app-card>
+    <div title>Live API Communication Playground</div>
+
+    <div content>
+        <p class="flow-intro">
+            Follow this flow: API Data Source -> Parent State -> Child/Sibling Events -> Service Channels -> End State.
+        </p>
+
+        <div class="flow-strip">
+            <span class="step-chip">1. Load API</span>
+            <span class="flow-arrow">-></span>
+            <span class="step-chip">2. Input / Output</span>
+            <span class="flow-arrow">-></span>
+            <span class="step-chip">3. Sibling via Parent</span>
+            <span class="flow-arrow">-></span>
+            <span class="step-chip">4. Services / Signals</span>
+        </div>
+
+        <section class="flow-section">
+            <h4>Step 1: Start from live API data</h4>
+            <div class="input-action">
+                <button type="button" (click)="loadApiData()">Reload API Data</button>
+                @if (loading) {
+                <span>Loading...</span>
+                }
+                @if (errorMessage) {
+                <span class="error">{{ errorMessage }}</span>
+                }
+            </div>
+
+            <div class="state-row">
+                <span class="state-pill">Users: {{ users.length }}</span>
+                <span class="state-pill">Posts loaded: {{ posts.length }}</span>
+                <span class="state-pill">Filtered posts: {{ filteredPosts.length }}</span>
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <h4>Step 2: Parent -> Child and Child -> Parent</h4>
+            <div class="live-grid two-col">
+                <app-live-api-input-view [user]="currentUser"></app-live-api-input-view>
+                <app-live-api-output-action (nextPostRequested)="showNextPost()"></app-live-api-output-action>
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <h4>Step 3: Sibling communication through parent</h4>
+            <div class="live-grid two-col">
+                <app-live-api-sibling-sender (filterChanged)="updateFilter($event)"></app-live-api-sibling-sender>
+                <app-live-api-sibling-receiver [posts]="filteredPosts"
+                    [filterTerm]="filterTerm"></app-live-api-sibling-receiver>
+            </div>
+        </section>
+
+        <section class="flow-section">
+            <h4>Step 4: Publish once, observe across channels</h4>
+            <div class="live-grid two-col">
+                <app-live-api-service-sender [userName]="currentUser?.name || ''"
+                    [postTitle]="currentPost?.title || ''"></app-live-api-service-sender>
+                <app-live-api-service-receiver></app-live-api-service-receiver>
+            </div>
+        </section>
+
+        <section class="flow-section end-state">
+            <h4>End state snapshot</h4>
+            <div class="state-row">
+                <span class="state-pill">
+                    Active user: {{ currentUser?.name || 'N/A' }}
+                </span>
+                <span class="state-pill">
+                    Current post: {{ currentPost?.title || 'N/A' }}
+                </span>
+                <span class="state-pill">
+                    Active filter: {{ filterTerm || 'none' }}
+                </span>
+            </div>
+        </section>
+    </div>
+</app-card>

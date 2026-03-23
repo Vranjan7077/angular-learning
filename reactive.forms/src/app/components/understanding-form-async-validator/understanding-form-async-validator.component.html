@@ -1,0 +1,26 @@
+<app-card>
+  <div title>8) Async Validator</div>
+
+  <div content>
+    <div class="demo">
+      <div class="field">
+        <label for="async-username">Username</label>
+        <input id="async-username" [formControl]="usernameControl" placeholder="Try 'admin' and blur" />
+        <p class="hint">
+          Async validation runs on blur and simulates a server check.
+        </p>
+        <p class="hint" *ngIf="usernameControl.pending">Checking username...</p>
+        <p class="error" *ngIf="usernameControl.errors?.['taken'] && usernameControl.touched">
+          Username already taken.
+        </p>
+      </div>
+
+      <pre>{{ {
+        value: usernameControl.value,
+        status: usernameControl.status,
+        pending: usernameControl.pending,
+        errors: usernameControl.errors
+      } | json }}</pre>
+    </div>
+  </div>
+</app-card>

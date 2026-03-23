@@ -1,0 +1,65 @@
+.style-binding-demo {
+  display: grid;
+  gap: 16px;
+}
+
+.intro,
+.status {
+  margin: 0;
+  color: #334155;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.preview-card {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid;
+  border-radius: 14px;
+}
+
+.preview-card h4,
+.preview-card p {
+  margin: 0;
+}
+
+.preview-card h4 {
+  color: #1e3a8a;
+  text-transform: capitalize;
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  padding: 8px 12px;
+  border: 1px solid;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+}

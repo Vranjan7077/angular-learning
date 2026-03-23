@@ -1,0 +1,42 @@
+<app-card>
+  <div title>How It Works</div>
+
+  <div content class="card-section">
+    <p class="section-text">
+      This demo uses runtime translation with <code>ngx-translate</code>.
+    </p>
+
+    <div class="message-box">
+      <p class="message-label">Flow</p>
+      <ol class="info-list">
+        <li>Select a language from the dropdown.</li>
+        <li>
+          The app loads the matching
+          <code>messages.&lt;lang&gt;.json</code> file.
+        </li>
+        <li>The <code>translate</code> pipe updates the UI text.</li>
+        <li>
+          The <code>{{ placeholderExample }}</code> placeholder is replaced with
+          your input.
+        </li>
+      </ol>
+    </div>
+
+    <div class="message-box">
+      <p class="message-label">Current JSON values</p>
+      <pre
+        class="code-block"
+      ><code [textContent]="currentJsonPreview"></code></pre>
+    </div>
+
+    <div class="message-box">
+      <p class="message-label">Interpolation example</p>
+      <p class="example-line">
+        Template: <code>{{ templatePreview }}</code>
+      </p>
+      <p class="example-line">
+        Result: <strong>{{ resultPreview }}</strong>
+      </p>
+    </div>
+  </div>
+</app-card>

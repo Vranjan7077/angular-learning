@@ -1,0 +1,39 @@
+<app-card>
+  <div title>6) Disable submit using `form.invalid`</div>
+
+  <div content>
+    <p class="lesson-text">
+      Keep the submit button disabled until the form becomes valid.
+    </p>
+
+    <form #form="ngForm" class="demo-form">
+      <div class="field">
+        <label for="disableEmail">Email</label>
+        <input
+          id="disableEmail"
+          name="email"
+          ngModel
+          required
+          email
+          #emailCtrl="ngModel"
+        />
+        <div class="error" *ngIf="emailCtrl.invalid && emailCtrl.touched">
+          Enter a valid email address.
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">form valid: {{ form.valid }}</span>
+        <span class="status-item">form invalid: {{ form.invalid }}</span>
+        <span class="status-item">button disabled: {{ form.invalid }}</span>
+        <span class="status-item">email errors: {{ emailCtrl.errors | json }}</span>
+      </div>
+    </div>
+  </div>
+</app-card>

@@ -1,0 +1,16 @@
+<div class="app-shell">
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" routerLink="/home">Angular Routing Demo</a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a routerLink="/home" [class.active]="isHomeRoute()"> Home </a>
+        <a routerLink="/users" [class.active]="isUsersRoute()">Users</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

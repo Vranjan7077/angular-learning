@@ -1,0 +1,69 @@
+<app-card>
+  <div title>Event Binding (Posts API)</div>
+
+  <div content class="event-binding-demo">
+    <p class="intro">
+      This example uses <code>(click)</code> event binding to load posts, change
+      the selected post, and jump to a random result.
+    </p>
+
+    <div class="actions">
+      <button type="button" class="action-button primary" (click)="loadPosts()">
+        Load Posts
+      </button>
+      <button
+        type="button"
+        class="action-button"
+        (click)="showPrevious()"
+        [disabled]="!posts.length"
+      >
+        Previous
+      </button>
+      <button
+        type="button"
+        class="action-button"
+        (click)="showNext()"
+        [disabled]="!posts.length"
+      >
+        Next
+      </button>
+      <button
+        type="button"
+        class="action-button accent"
+        (click)="surpriseMe()"
+        [disabled]="!posts.length"
+      >
+        Surprise Me
+      </button>
+    </div>
+
+    <p *ngIf="isLoading" class="status">Loading posts...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <ng-container *ngIf="selectedPost as post">
+      <article class="post-card">
+        <div class="post-meta">
+          <p class="eyebrow">User {{ post.userId }} · Post {{ post.id }}</p>
+          <h4>{{ post.title }}</h4>
+          <p>{{ post.body }}</p>
+        </div>
+      </article>
+
+      <div class="post-chip-row">
+        <button
+          *ngFor="let item of posts; let i = index"
+          type="button"
+          class="post-chip"
+          [class.is-active]="i === selectedIndex"
+          (click)="selectPost(i)"
+        >
+          Post {{ item.id }}
+        </button>
+      </div>
+    </ng-container>
+
+    <p *ngIf="!isLoading && !errorMessage && !posts.length" class="status">
+      Click <strong>Load Posts</strong> to trigger the event-bound actions.
+    </p>
+  </div>
+</app-card>

@@ -1,0 +1,29 @@
+<app-card>
+  <div title>5) `pattern`: regex-based validation</div>
+
+  <div content>
+    <p class="lesson-text">
+      `pattern` validates text using a regular expression. Here we allow exactly 10 digits.
+    </p>
+
+    <form class="demo-form">
+      <div class="field">
+        <label for="phone">Phone Number</label>
+        <input id="phone" name="phone" ngModel pattern="[0-9]{10}" #phoneCtrl="ngModel" />
+        <span class="hint">Example valid value: 9876543210</span>
+        <div class="error" *ngIf="phoneCtrl.invalid && phoneCtrl.touched">
+          Phone number must contain exactly 10 digits.
+        </div>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">valid: {{ phoneCtrl.valid }}</span>
+        <span class="status-item">invalid: {{ phoneCtrl.invalid }}</span>
+        <span class="status-item">touched: {{ phoneCtrl.touched }}</span>
+        <span class="status-item">errors: {{ phoneCtrl.errors | json }}</span>
+      </div>
+    </div>
+  </div>
+</app-card>

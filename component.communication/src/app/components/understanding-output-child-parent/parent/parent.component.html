@@ -1,0 +1,17 @@
+<app-card>
+    <div title>&#64;Output Demo</div>
+
+    <div content>
+        <p><strong>Parent Component</strong> listens to child events.</p>
+        <p>
+            Parent listens using:
+            <code>(notifyParent)="onChildMessage($event)"</code>
+        </p>
+        <p>
+            <strong>Message from child: </strong>
+            <code>{{ messageFromChild }}</code>
+        </p>
+
+        <app-understanding-output-child (notifyParent)="onChildMessage($event)"></app-understanding-output-child>
+    </div>
+</app-card>

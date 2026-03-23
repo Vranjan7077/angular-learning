@@ -1,0 +1,17 @@
+<div class="notes-page">
+
+    <div class="navbar">
+        <span>📝 Notes App</span>
+        <div class="navbar__right">
+            <span>Hello, {{ username }}!</span>
+            <button (click)="onLogout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="notes-content">
+        <app-notes-form [note]="selectedNote" (formSubmitted)="onFormSubmitted()"></app-notes-form>
+        <app-notes-list (editNote)="onEditNote($event)"></app-notes-list>
+        <app-toast></app-toast>
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+<app-card>
+    <div title>Template Reference Variable</div>
+
+    <div content>
+        <div class="input-action">
+            <input #inputReference type="text" placeholder="Enter some text" aria-label="Template reference input" />
+            <button type="button" (click)="show(inputReference.value)">Show Input Value</button>
+        </div>
+    </div>
+</app-card>

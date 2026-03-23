@@ -1,0 +1,27 @@
+<app-card>
+  <div title>4) `required`: mandatory field validation</div>
+
+  <div content>
+    <p class="lesson-text">
+      Add `required` to any control. Angular marks it invalid until a value is entered.
+    </p>
+
+    <form class="demo-form">
+      <div class="field">
+        <label for="requiredName">Name</label>
+        <input id="requiredName" name="name" ngModel required #name="ngModel" />
+        <span class="hint">Touch the field and leave it empty to trigger the error.</span>
+        <div class="error" *ngIf="name.invalid && name.touched">Name is required.</div>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">valid: {{ name.valid }}</span>
+        <span class="status-item">invalid: {{ name.invalid }}</span>
+        <span class="status-item">touched: {{ name.touched }}</span>
+        <span class="status-item">errors: {{ name.errors | json }}</span>
+      </div>
+    </div>
+  </div>
+</app-card>

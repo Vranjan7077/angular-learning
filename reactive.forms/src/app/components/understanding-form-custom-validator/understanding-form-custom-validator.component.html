@@ -1,0 +1,28 @@
+<app-card>
+  <div title>7) Custom Validator</div>
+
+  <div content>
+    <div class="demo">
+      <div class="field">
+        <label for="custom-age">Age</label>
+        <input id="custom-age" [formControl]="ageControl" type="number" />
+        <p class="hint">Custom rule: age must be 18 or above.</p>
+        <p class="error" *ngIf="ageControl.errors?.['underAge'] && ageControl.touched">
+          Must be 18+
+        </p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="secondary" (click)="setMinorAge()">Set 16</button>
+        <button type="button" (click)="setAdultAge()">Set 21</button>
+      </div>
+
+      <pre>{{ {
+        value: ageControl.value,
+        errors: ageControl.errors,
+        touched: ageControl.touched,
+        valid: ageControl.valid
+      } | json }}</pre>
+    </div>
+  </div>
+</app-card>

@@ -1,0 +1,13 @@
+<app-card>
+    <div title>Receiver Component</div>
+
+    <div content>
+        <p>
+            Reads shared state using <code>sharedService.message$ | async</code>.
+        </p>
+        <p>
+            <strong>Received message:</strong>
+            <code>{{ sharedService.message$ | async }}</code>
+        </p>
+    </div>
+</app-card>

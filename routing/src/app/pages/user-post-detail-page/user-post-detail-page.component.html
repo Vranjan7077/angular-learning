@@ -1,0 +1,23 @@
+<div class="post-detail">
+  <div *ngIf="loading" class="loading-panel">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>Loading post details...</p>
+  </div>
+
+  <div *ngIf="error" class="error-box">
+    {{ error }}
+  </div>
+
+  <section *ngIf="!loading && !error && post" class="surface-card">
+    <p class="detail-label">Selected Post</p>
+    <h3>{{ post.title }}</h3>
+    <p class="detail-body">{{ post.body }}</p>
+
+    <div class="detail-meta">
+      <span>Post ID: {{ post.id }}</span>
+      <span>User ID: {{ post.userId }}</span>
+    </div>
+
+    <a routerLink="../" class="back-link">Back to Posts List</a>
+  </section>
+</div>

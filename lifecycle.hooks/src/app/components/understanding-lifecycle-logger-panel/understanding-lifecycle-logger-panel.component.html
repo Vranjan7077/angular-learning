@@ -1,0 +1,8 @@
+<app-card>
+  <div title>Lifecycle Execution Logger Panel</div>
+  <p content>Watching inputs: region={{ region }}, alpha={{ alphaCode }}</p>
+  <button content type="button" (click)="clearLogs()">Clear Logs</button>
+  <ol content>
+    <li *ngFor="let log of logs">{{ log }}</li>
+  </ol>
+</app-card>

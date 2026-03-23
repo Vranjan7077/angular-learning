@@ -1,0 +1,14 @@
+<app-card>
+    <div title>Sibling A (Sender)</div>
+
+    <div content>
+        <p>
+            Emits value to parent using <code>&#64;Output() messageChange</code>.
+        </p>
+
+        <div class="input-action">
+            <input #messageBox type="text" placeholder="Type message for sibling B" aria-label="Sibling A message input" />
+            <button type="button" (click)="sendMessage(messageBox.value)">Send To Parent</button>
+        </div>
+    </div>
+</app-card>

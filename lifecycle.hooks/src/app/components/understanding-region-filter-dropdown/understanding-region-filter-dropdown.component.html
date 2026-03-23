@@ -1,0 +1,15 @@
+<app-card>
+  <div title>Region Filter Dropdown</div>
+  <div content class="filter-control">
+    Select Region:
+    <app-custom-dropdown [options]="regions" [selected]="selectedRegion"
+      (selectedChange)="onRegionChange($event)"></app-custom-dropdown>
+  </div>
+  <p content>Endpoint: `/region/{{ selectedRegion }}`</p>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="24" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

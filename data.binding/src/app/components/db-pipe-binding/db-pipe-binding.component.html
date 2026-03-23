@@ -1,0 +1,24 @@
+<app-card>
+  <div title>Pipe Binding (Posts API)</div>
+
+  <div content class="pipe-binding-demo">
+    <p class="intro">
+      This example uses built-in pipes like <code>titlecase</code>,
+      <code>uppercase</code>, <code>slice</code>, <code>date</code>, and
+      <code>json</code>.
+    </p>
+
+    <p *ngIf="isLoading" class="status">Loading posts...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <div *ngIf="!isLoading && !errorMessage" class="post-grid">
+      <article *ngFor="let post of posts" class="post-card">
+        <p class="eyebrow">Published {{ post.publishedOn | date: 'mediumDate' }}</p>
+        <h4>{{ post.title | titlecase }}</h4>
+        <p>{{ post.body | slice:0:90 }}...</p>
+        <p class="meta">Author label: {{ ('user ' + post.userId) | uppercase }}</p>
+        <pre>{{ { id: post.id, userId: post.userId } | json }}</pre>
+      </article>
+    </div>
+  </div>
+</app-card>

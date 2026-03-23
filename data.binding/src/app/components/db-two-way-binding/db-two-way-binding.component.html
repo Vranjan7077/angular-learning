@@ -1,0 +1,152 @@
+<app-card>
+  <div title>Two-Way Binding (Users API)</div>
+
+  <div content class="two-way-binding-demo">
+    <p class="intro">
+      This example uses <code>[(ngModel)]</code> so the form fields and preview
+      card stay in sync as you type.
+    </p>
+
+    <p *ngIf="isLoading" class="status">Loading profile...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="status success">{{ successMessage }}</p>
+
+    <div *ngIf="!isLoading && !errorMessage" class="editor-layout">
+      <form
+        #profileForm="ngForm"
+        class="editor-panel"
+        novalidate
+        (ngSubmit)="submitProfile(profileForm)"
+      >
+        <label
+          class="field"
+          [class.field-invalid]="
+            name.invalid && (name.touched || profileForm.submitted)
+          "
+        >
+          <span>Name</span>
+          <input
+            type="text"
+            [(ngModel)]="profile.name"
+            name="name"
+            #name="ngModel"
+            required
+            minlength="3"
+            aria-label="Name"
+          />
+        </label>
+        <p
+          *ngIf="name.invalid && (name.touched || profileForm.submitted)"
+          class="field-error"
+        >
+          {{
+            name.errors?.["required"]
+              ? "Name is required."
+              : "Name must be at least 3 characters."
+          }}
+        </p>
+
+        <label
+          class="field"
+          [class.field-invalid]="
+            email.invalid && (email.touched || profileForm.submitted)
+          "
+        >
+          <span>Email</span>
+          <input
+            type="email"
+            [(ngModel)]="profile.email"
+            name="email"
+            #email="ngModel"
+            required
+            email
+            aria-label="Email"
+          />
+        </label>
+        <p
+          *ngIf="email.invalid && (email.touched || profileForm.submitted)"
+          class="field-error"
+        >
+          {{
+            email.errors?.["required"]
+              ? "Email is required."
+              : "Enter a valid email address."
+          }}
+        </p>
+
+        <label
+          class="field"
+          [class.field-invalid]="
+            company.invalid && (company.touched || profileForm.submitted)
+          "
+        >
+          <span>Company</span>
+          <input
+            type="text"
+            [(ngModel)]="profile.company"
+            name="company"
+            #company="ngModel"
+            required
+            minlength="2"
+            aria-label="Company"
+          />
+        </label>
+        <p
+          *ngIf="company.invalid && (company.touched || profileForm.submitted)"
+          class="field-error"
+        >
+          {{
+            company.errors?.["required"]
+              ? "Company is required."
+              : "Company must be at least 2 characters."
+          }}
+        </p>
+
+        <label
+          class="field"
+          [class.field-invalid]="
+            bio.invalid && (bio.touched || profileForm.submitted)
+          "
+        >
+          <span>Bio</span>
+          <textarea
+            [(ngModel)]="profile.bio"
+            name="bio"
+            #bio="ngModel"
+            rows="4"
+            required
+            minlength="15"
+            maxlength="180"
+          ></textarea>
+        </label>
+        <p
+          *ngIf="bio.invalid && (bio.touched || profileForm.submitted)"
+          class="field-error"
+        >
+          {{
+            bio.errors?.["required"]
+              ? "Bio is required."
+              : bio.errors?.["minlength"]
+                ? "Bio must be at least 15 characters."
+                : "Bio cannot exceed 180 characters."
+          }}
+        </p>
+
+        <div class="form-footer">
+          <p class="form-state">
+            Form status: {{ profileForm.valid ? "Valid" : "Invalid" }}
+          </p>
+          <button type="submit" class="submit-button">Validate Profile</button>
+        </div>
+      </form>
+
+      <article class="preview-card">
+        <p class="eyebrow">Live Preview</p>
+        <h4>{{ profile.name }}</h4>
+        <p>{{ profile.email }}</p>
+        <p>{{ profile.company }}</p>
+        <p>{{ profile.bio }}</p>
+      </article>
+    </div>
+  </div>
+</app-card>

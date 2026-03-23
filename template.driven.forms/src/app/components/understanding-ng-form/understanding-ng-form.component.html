@@ -1,0 +1,32 @@
+<app-card>
+  <div title>2) `ngForm`: form-level state and value</div>
+
+  <div content>
+    <p class="lesson-text">
+      `#form="ngForm"` gives access to the whole form object: value, valid/invalid, touched, and more.
+    </p>
+
+    <form #form="ngForm" class="demo-form">
+      <div class="field">
+        <label for="formName">Name</label>
+        <input id="formName" name="name" ngModel required minlength="2" />
+      </div>
+
+      <div class="field">
+        <label for="formCity">City</label>
+        <input id="formCity" name="city" ngModel />
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">form valid: {{ form.valid }}</span>
+        <span class="status-item">form invalid: {{ form.invalid }}</span>
+        <span class="status-item">form touched: {{ form.touched }}</span>
+        <span class="status-item">form dirty: {{ form.dirty }}</span>
+      </div>
+    </div>
+
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</app-card>

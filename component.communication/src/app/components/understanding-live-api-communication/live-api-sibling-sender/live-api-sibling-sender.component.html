@@ -1,0 +1,11 @@
+<app-card>
+    <div title>Sibling Sender (via Parent)</div>
+
+    <div content>
+        <p>Updates filter term and parent forwards it to sibling receiver.</p>
+        <div class="input-action">
+            <input #termBox type="text" placeholder="Filter posts by title keyword" aria-label="Post filter keyword" />
+            <button type="button" (click)="filterChanged.emit(termBox.value)">Apply Filter</button>
+        </div>
+    </div>
+</app-card>

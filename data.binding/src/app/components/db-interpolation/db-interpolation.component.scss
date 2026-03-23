@@ -1,0 +1,48 @@
+.interpolation-demo {
+  display: grid;
+  gap: 16px;
+}
+
+.intro,
+.status {
+  margin: 0;
+  color: #334155;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.user-card {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #dbe4ff;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+.user-card h4,
+.user-card p {
+  margin: 0;
+}
+
+.user-card h4 {
+  color: #1e3a8a;
+}
+
+.user-card p {
+  color: #475569;
+}
+
+.eyebrow {
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

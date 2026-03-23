@@ -1,0 +1,41 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+
+import { DbPipeBindingComponent } from './db-pipe-binding.component';
+import { ApiServiceService } from '../../services/api-service.service';
+
+describe('DbPipeBindingComponent', () => {
+  let component: DbPipeBindingComponent;
+  let fixture: ComponentFixture<DbPipeBindingComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [DbPipeBindingComponent],
+      providers: [
+        {
+          provide: ApiServiceService,
+          useValue: {
+            getPosts: () =>
+              of([
+                {
+                  userId: 1,
+                  id: 1,
+                  title: 'Sample post title',
+                  body: 'Sample post body',
+                },
+              ]),
+          },
+        },
+      ],
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(DbPipeBindingComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

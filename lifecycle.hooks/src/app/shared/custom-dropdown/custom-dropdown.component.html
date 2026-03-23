@@ -1,0 +1,13 @@
+<div class="dropdown">
+  <button type="button" class="dropdown-trigger" (click)="toggle()">
+    {{ selected || 'Select' }}
+    <span class="caret" [class.open]="isOpen"></span>
+  </button>
+
+  <div class="dropdown-panel" *ngIf="isOpen">
+    <button type="button" class="dropdown-option" *ngFor="let option of options" [class.selected]="option === selected"
+      (click)="select(option)">
+      {{ option }}
+    </button>
+  </div>
+</div>

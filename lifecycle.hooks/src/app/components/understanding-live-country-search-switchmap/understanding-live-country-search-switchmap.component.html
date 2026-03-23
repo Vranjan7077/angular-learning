@@ -1,0 +1,14 @@
+<app-card>
+  <div title>Live Country Search with switchMap</div>
+  <label content>
+    Search by name:
+    <input type="text" [ngModel]="query" (ngModelChange)="onQueryChange($event)" placeholder="Type at least 2 chars" />
+  </label>
+  <p content>Endpoint: `/name/{{ '{' }}name{{ '}' }}`</p>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="24" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

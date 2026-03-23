@@ -1,0 +1,28 @@
+<app-card>
+  <div title>3) `ngSubmit`: reading form data on submit</div>
+  <div content>
+    <p class="lesson-text">
+      `(ngSubmit)` runs only when the form is submitted. It is the standard hook for API calls.
+    </p>
+
+    <form #form="ngForm" (ngSubmit)="submit(form)" class="demo-form">
+      <div class="field">
+        <label for="submitEmail">Email</label>
+        <input id="submitEmail" name="email" ngModel required email />
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">form valid: {{ form.valid }}</span>
+        <span class="status-item">submit count: {{ submitCount }}</span>
+      </div>
+    </div>
+
+    <pre>{{ lastSubmittedValue | json }}</pre>
+  </div>
+</app-card>

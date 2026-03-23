@@ -1,0 +1,10 @@
+<app-card>
+  <div title>ngAfterContentChecked - Currency Endpoint</div>
+  <p content>Loaded after first content check from `/currency/eur`.</p>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="30" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

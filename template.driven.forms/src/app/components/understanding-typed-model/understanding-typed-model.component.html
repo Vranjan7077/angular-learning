@@ -1,0 +1,30 @@
+<app-card>
+  <div title>9) Typed model with template-driven form</div>
+
+  <div content>
+    <p class="lesson-text">
+      The UI is template-driven, but the model object in TypeScript stays strongly typed.
+    </p>
+
+    <form #form="ngForm" class="demo-form">
+      <div class="field">
+        <label for="typedName">Name</label>
+        <input id="typedName" name="name" [(ngModel)]="user.name" required />
+      </div>
+
+      <div class="field">
+        <label for="typedEmail">Email</label>
+        <input id="typedEmail" name="email" [(ngModel)]="user.email" required email />
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">form valid: {{ form.valid }}</span>
+        <span class="status-item">form touched: {{ form.touched }}</span>
+      </div>
+    </div>
+
+    <pre>{{ user | json }}</pre>
+  </div>
+</app-card>

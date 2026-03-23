@@ -1,0 +1,18 @@
+<app-card>
+  <div title>Signals + REST Countries Integration</div>
+  <div content class="filter-control">
+    Region:
+    <app-custom-dropdown
+      [options]="regions"
+      [selected]="selectedRegion()"
+      (selectedChange)="onRegionChange($event)"
+    ></app-custom-dropdown>
+  </div>
+  <p content>Signal value: {{ selectedRegion() }}</p>
+  <ul content>
+    <li *ngFor="let country of countries().slice(0, 5)">
+      <img [src]="country.flags.png" width="24" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

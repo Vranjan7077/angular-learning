@@ -1,0 +1,4 @@
+{
+  "greeting": "Hallo Welt !!",
+  "welcome": "Willkommen, {{name}}!"
+}

@@ -1,0 +1,10 @@
+<app-card>
+    <div title>ngOnInit - Fetch by Alpha Codes</div>
+    <p content>Loaded from API (`/alpha?codes=IN,US,JP`): {{ countries.length }}</p>
+    <ul content>
+        <li *ngFor="let country of countries">
+            <img [src]="country.flags.png" width="30" />
+            {{ country.name.common }}
+        </li>
+    </ul>
+</app-card>

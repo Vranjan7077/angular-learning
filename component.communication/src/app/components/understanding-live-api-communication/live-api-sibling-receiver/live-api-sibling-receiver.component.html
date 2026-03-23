@@ -1,0 +1,12 @@
+<app-card>
+    <div title>Sibling Receiver (via Parent)</div>
+
+    <div content>
+        <p><strong>Filter:</strong> {{ filterTerm || 'none' }}</p>
+        <ul>
+            @for (post of posts; track post.id) {
+            <li>{{ post.title }}</li>
+            }
+        </ul>
+    </div>
+</app-card>

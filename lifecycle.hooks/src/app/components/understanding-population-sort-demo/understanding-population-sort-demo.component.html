@@ -1,0 +1,13 @@
+<app-card>
+  <div title>Population Sort (Change Detection Demo)</div>
+  <p content>Current sort: {{ currentSort }}</p>
+  <div content class="actions">
+    <button type="button" (click)="sortByPopulationAsc()">Sort Asc</button>
+    <button type="button" (click)="sortByPopulationDesc()">Sort Desc</button>
+  </div>
+  <ul content>
+    <li *ngFor="let country of countries">
+      {{ country.name.common }} - {{ (country.population ?? 0) | number }}
+    </li>
+  </ul>
+</app-card>

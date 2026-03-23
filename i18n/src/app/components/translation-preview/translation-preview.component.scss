@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  align-self: stretch;
+}
+
+.card-section {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.section-text {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.message-box {
+  border: 1px solid #dbe4ff;
+  border-radius: 12px;
+  padding: 16px;
+  background: #f8fbff;
+}
+
+.message-box.muted {
+  background: #f8fafc;
+}
+
+.message-label {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.translated-heading {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #0f172a;
+}
+
+.welcome-message {
+  margin: 0;
+  color: #1e293b;
+  line-height: 1.6;
+}

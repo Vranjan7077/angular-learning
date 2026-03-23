@@ -1,0 +1,28 @@
+<app-card>
+  <div title>5) Nested FormGroup</div>
+
+  <div content>
+    <form [formGroup]="form" class="demo">
+      <fieldset class="section" formGroupName="address">
+        <legend>Address Group</legend>
+
+        <div class="field">
+          <label for="nested-city">City</label>
+          <input id="nested-city" formControlName="city" placeholder="City" />
+        </div>
+
+        <div class="field">
+          <label for="nested-zip">ZIP</label>
+          <input id="nested-zip" formControlName="zip" placeholder="ZIP code" />
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" (click)="prefillAddress()">Fill Demo Address</button>
+        <button type="button" class="secondary" (click)="resetAddress()">Reset</button>
+      </div>
+    </form>
+
+    <pre>{{ form.getRawValue() | json }}</pre>
+  </div>
+</app-card>

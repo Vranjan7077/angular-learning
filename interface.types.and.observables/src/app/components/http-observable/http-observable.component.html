@@ -1,0 +1,23 @@
+<app-card>
+    <div title>HttpClient + Observable</div>
+
+    <div content class="http-observable">
+        <div class="actions">
+            <button class="btn btn-primary" type="button" [disabled]="isLoading" (click)="loadUser()">Load User</button>
+            <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
+        </div>
+
+        <p class="loader" *ngIf="isLoading">Loading user...</p>
+        <p class="empty" *ngIf="!isLoading && users.length === 0">No users loaded yet.</p>
+
+        <ul class="user-list" *ngIf="users.length > 0">
+            <li class="user-item" *ngFor="let user of users">
+                <span class="user-id">{{ user.id }}</span>
+                <div>
+                    <p class="user-name">{{ user.name }}</p>
+                    <p class="user-email">{{ user.email }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</app-card>

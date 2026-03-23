@@ -1,0 +1,183 @@
+<div class="home-page page-shell">
+  <section class="surface-card intro-section">
+    <h1 class="page-title">Angular Routing Demo</h1>
+    <p class="page-intro">
+      This project demonstrates how routing works in Angular using simple live
+      examples for static routes, dynamic routes, nested routes, lazy loading,
+      and wildcard routing.
+    </p>
+  </section>
+
+  <section class="content-grid">
+    <article class="surface-card">
+      <h2 class="section-title">Step-by-step demo flow</h2>
+      <ol class="teaching-list ordered-list">
+        <li>Start on <code>/home</code> and read the demo cards.</li>
+        <li>Open <code>/users</code> to see a static route in action.</li>
+        <li>Open any user to move to <code>/users/:id</code>.</li>
+        <li>Open the Posts tab to see the nested route.</li>
+        <li>Click any post to open <code>/users/:id/posts/:postId</code>.</li>
+        <li>Try <code>/demo-not-found</code> to trigger the wildcard route.</li>
+      </ol>
+    </article>
+
+    <article class="surface-card">
+      <h2 class="section-title">Where this is implemented</h2>
+      <ul class="teaching-list">
+        <li><code>app.routes.ts</code> defines the routes</li>
+        <li><code>user-detail-page.component.ts</code> reads route params</li>
+        <li>
+          <code>user-detail-page.component.html</code> renders nested routes
+        </li>
+        <li>
+          <code>user-posts-page.component.ts</code> loads posts for a user
+        </li>
+        <li>
+          <code>user-post-detail-page.component.ts</code> loads one selected
+          post
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="concept-grid">
+    <article class="concept-card surface-card">
+      <h2 class="section-title">Static Route</h2>
+      <p>The home page and users page are fixed routes.</p>
+      <p class="example-line">
+        Example: <code>/home</code> and <code>/users</code>
+      </p>
+      <p class="note-line"><strong>Observe:</strong> the path stays fixed.</p>
+      <p class="note-line">
+        <strong>Implemented in: </strong> <code>app.routes.ts</code>
+      </p>
+      <a routerLink="/users" class="btn btn-primary">Open Users</a>
+    </article>
+
+    <article class="concept-card surface-card">
+      <h2 class="section-title">Dynamic Route</h2>
+      <p>
+        The user detail page reads the id from the route and loads data for that
+        user.
+      </p>
+      <p class="example-line">Example: <code>/users/1</code></p>
+      <p class="note-line">
+        <strong>Observe:</strong> the id value changes in the URL.
+      </p>
+      <p class="note-line">
+        <strong>Implemented in: </strong> <code>ActivatedRoute</code>
+      </p>
+      <a routerLink="/users/1" class="btn btn-primary">Open User 1</a>
+    </article>
+
+    <article class="concept-card surface-card">
+      <h2 class="section-title">Nested Route</h2>
+      <p>
+        The posts page is shown inside the user detail page using a nested
+        router outlet.
+      </p>
+      <p class="example-line">Example: <code>/users/1/posts</code></p>
+      <p class="note-line">
+        <strong>Observe:</strong> posts render inside the detail page layout.
+      </p>
+      <p class="note-line">
+        <strong>Implemented in: </strong> <code>router-outlet</code>
+      </p>
+      <a routerLink="/users/1/posts" class="btn btn-primary"
+        >Open Nested Route</a
+      >
+    </article>
+
+    <article class="concept-card surface-card">
+      <h2 class="section-title">Post Detail Route</h2>
+      <p>
+        Clicking a post opens a more specific route for that selected post
+        under the same user.
+      </p>
+      <p class="example-line">Example: <code>/users/1/posts/1</code></p>
+      <p class="note-line">
+        <strong>Observe:</strong> the URL now includes both user id and post id.
+      </p>
+      <p class="note-line">
+        <strong>Implemented in: </strong>
+        <code>user-post-detail-page.component.ts</code>
+      </p>
+      <a routerLink="/users/1/posts/1" class="btn btn-primary">Open Post 1</a>
+    </article>
+
+    <article class="concept-card surface-card">
+      <h2 class="section-title">Lazy Loading</h2>
+      <p>
+        The posts page is loaded only when you visit the posts route instead of
+        loading it upfront.
+      </p>
+      <p class="example-line">Used in: <code>loadComponent()</code></p>
+      <p class="note-line">
+        <strong>Observe:</strong> the posts view loads only when opened.
+      </p>
+      <p class="note-line">
+        <strong>Implemented in: </strong> <code>app.routes.ts</code>
+      </p>
+      <a routerLink="/users/2/posts" class="btn btn-primary">Try Lazy Route</a>
+    </article>
+
+    <article class="concept-card surface-card">
+      <h2 class="section-title">Wildcard Route</h2>
+      <p>
+        Unknown routes are handled by the wildcard route and redirected to the
+        not-found page.
+      </p>
+      <p class="example-line">Example: <code>/demo-not-found</code></p>
+      <p class="note-line">
+        <strong>Observe:</strong> unknown URLs go to the 404 page.
+      </p>
+      <p class="note-line">
+        <strong>Implemented in: </strong> <code>path: '**'</code>
+      </p>
+      <a routerLink="/demo-not-found" class="btn btn-primary">Open 404 Demo</a>
+    </article>
+
+    <article class="concept-card surface-card">
+      <h2 class="section-title">Route Params + API</h2>
+      <p>
+        Route parameters are combined with API calls to fetch the correct user
+        and posts data.
+      </p>
+      <p class="example-line">
+        Uses: <code>ActivatedRoute</code> + <code>HttpClient</code>
+      </p>
+      <p class="note-line">
+        <strong>Observe:</strong> different ids load different users.
+      </p>
+      <p class="note-line">
+        <strong>Implemented in: </strong>
+        <code>user-detail-page.component.ts</code>
+      </p>
+      <a routerLink="/users/3" class="btn btn-primary">See Data Loading</a>
+    </article>
+  </section>
+
+  <section class="content-grid">
+    <article class="surface-card">
+      <h2 class="section-title">What to observe</h2>
+      <ul class="teaching-list">
+        <li>Notice how the URL changes as you move between pages.</li>
+        <li>See how <code>:id</code> changes which user is loaded.</li>
+        <li>Observe that the posts page appears inside the detail page.</li>
+        <li>Click a post and observe the deeper post detail route.</li>
+        <li>Try a missing route to trigger the 404 page.</li>
+      </ul>
+    </article>
+
+    <article class="surface-card">
+      <h2 class="section-title">Core Angular Router APIs</h2>
+      <ul class="teaching-list">
+        <li><code>routerLink</code> for navigation</li>
+        <li><code>Routes</code> for route definitions</li>
+        <li><code>ActivatedRoute</code> for route params</li>
+        <li><code>router-outlet</code> for rendering route content</li>
+        <li><code>loadComponent</code> for lazy loading</li>
+      </ul>
+    </article>
+  </section>
+</div>

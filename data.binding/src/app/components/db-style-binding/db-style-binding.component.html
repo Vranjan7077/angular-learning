@@ -1,0 +1,51 @@
+<app-card>
+  <div title>Style Binding (Todos API)</div>
+
+  <div content class="style-binding-demo">
+    <p class="intro">
+      This example uses style binding to change colors, gradients, and progress
+      widths based on the selected todo item.
+    </p>
+
+    <p *ngIf="isLoading" class="status">Loading todos...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <ng-container *ngIf="selectedTodo as todo">
+      <article
+        class="preview-card"
+        [style.background]="getCardBackground(todo)"
+        [style.border-color]="getAccentColor(todo)"
+      >
+        <p class="eyebrow" [style.color]="getAccentColor(todo)">
+          Todo #{{ todo.id }}
+        </p>
+        <h4>{{ todo.title }}</h4>
+        <p [style.color]="getAccentColor(todo)">
+          {{ todo.completed ? 'Completed task' : 'Pending task' }}
+        </p>
+
+        <div class="progress-track">
+          <div
+            class="progress-fill"
+            [style.width.%]="getProgressWidth(todo)"
+            [style.background]="getAccentColor(todo)"
+          ></div>
+        </div>
+      </article>
+
+      <div class="chip-row">
+        <button
+          *ngFor="let item of todos; let i = index"
+          type="button"
+          class="chip"
+          [style.border-color]="getAccentColor(item)"
+          [style.color]="getAccentColor(item)"
+          [style.background]="i === selectedIndex ? 'rgba(37, 99, 235, 0.08)' : '#ffffff'"
+          (click)="selectTodo(i)"
+        >
+          Todo {{ item.id }}
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</app-card>

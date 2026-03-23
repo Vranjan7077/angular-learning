@@ -1,0 +1,31 @@
+<app-card>
+  <div title>Async Pipe (Users API)</div>
+  <div content>
+    <p class="intro">
+      This example uses the <code>async</code> pipe to unwrap the users list
+      directly in the template, without subscribing in the component.
+    </p>
+
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <ng-container *ngIf="users$ | async as users; else loading">
+      <div *ngIf="users.length; else emptyState" class="user-grid">
+        <article *ngFor="let user of users" class="user-card">
+          <div class="user-meta">
+            <h4>{{ user.name }}</h4>
+            <p>{{ user.email }}</p>
+            <p>{{ user.company.name }}</p>
+          </div>
+        </article>
+      </div>
+    </ng-container>
+
+    <ng-template #loading>
+      <p class="status">Loading users with async pipe...</p>
+    </ng-template>
+
+    <ng-template #emptyState>
+      <p class="status">No users available.</p>
+    </ng-template>
+  </div>
+</app-card>

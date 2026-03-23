@@ -1,0 +1,84 @@
+<h1 class="page-title">Angular Component Communication</h1>
+<p class="page-subtitle">
+  Learn Angular Component Communication from basics to advanced concepts. This tutorial covers various techniques for
+  communication between Angular components, including Input/Output properties, Event Emitters, Services, and more.
+  Whether you're a beginner or an experienced developer, this guide will help you understand how to effectively manage
+  data and events across your Angular application.
+</p>
+
+<div class="container">
+  <div class="demo demo--input-parent-child">
+    <h2>Demo: Parent to Child communication using &#64;Input</h2>
+    <p>
+      Parent component has the source data and passes it to child. Child only receives and displays that value.
+    </p>
+    <app-understanding-input-parent></app-understanding-input-parent>
+  </div>
+  <div class="demo demo--output-child-parent">
+    <h2>Demo: Child to Parent communication using &#64;Output</h2>
+    <p>
+      Child component sends data back to parent using an EventEmitter.
+    </p>
+    <app-understanding-output-parent></app-understanding-output-parent>
+  </div>
+  <div class="demo demo--template-reference">
+    <h2>Demo: Template Reference Variable</h2>
+    <p>
+      Template reference variables allow you to access elements in the template.
+    </p>
+    <app-understanding-template-reference></app-understanding-template-reference>
+  </div>
+  <div class="demo demo--view-child">
+    <h2>Demo: Parent calling Child method using &#64;ViewChild</h2>
+    <p>
+      Parent gets a reference to the child component instance and calls a public child method.
+    </p>
+    <app-understanding-view-child-parent></app-understanding-view-child-parent>
+  </div>
+  <div class="demo demo--content-projection">
+    <h2>Demo: Content projection using ng-content</h2>
+    <p>
+      Parent markup is projected into a reusable card component using named and default projection slots.
+    </p>
+    <app-understanding-content-projection></app-understanding-content-projection>
+  </div>
+  <div class="demo demo--sibling-communication">
+    <h2>Demo: Sibling communication via parent</h2>
+    <p>
+      Parent holds shared state. Sibling A emits updates to parent, and parent passes updated value to Sibling B.
+    </p>
+    <app-understanding-sibling-parent></app-understanding-sibling-parent>
+  </div>
+  <div class="demo demo--shared-service-communication">
+    <h2>Demo: Shared service communication</h2>
+    <p>
+      Sender updates a shared service and receiver reads from the same observable stream.
+    </p>
+    <app-understanding-shared-service-parent></app-understanding-shared-service-parent>
+  </div>
+  <div class="demo demo--behaviorsubject-communication">
+    <h2>Demo: BehaviorSubject communication</h2>
+    <p>
+      Sender pushes next values into a BehaviorSubject and receiver reacts via observable subscription.
+    </p>
+    <app-understanding-behaviorsubject-parent></app-understanding-behaviorsubject-parent>
+  </div>
+  <div class="demo demo--signals-communication">
+    <h2>Demo: Signals communication</h2>
+    <p>
+      Sender updates a shared signal and receiver reads the latest value directly with signal invocation.
+    </p>
+    <app-understanding-signals-parent></app-understanding-signals-parent>
+  </div>
+</div>
+
+
+<div class="container single-column">
+  <div class="demo demo--live-api-communication">
+    <h2>Demo: Live API communication playground</h2>
+    <p>
+      This combines all communication patterns with live API data so you can trace how data flows between components.
+    </p>
+    <app-understanding-live-api-communication></app-understanding-live-api-communication>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<app-card>
+    <div title>&#64;Input Demo</div>
+
+    <div content>
+        <p><strong>Parent Component</strong> owns the data.</p>
+        <p>
+            <strong>Parent value: </strong>
+            <code>{{ parentMessage }}</code>
+        </p>
+        <p>
+            Parent sends data to child using:
+            <code>[childData]="parentMessage"</code>
+        </p>
+
+        <app-understanding-input-child [childData]="parentMessage"></app-understanding-input-child>
+    </div>
+</app-card>

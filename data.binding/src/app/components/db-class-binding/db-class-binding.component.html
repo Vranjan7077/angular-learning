@@ -1,0 +1,30 @@
+<app-card>
+  <div title>Class Binding (Todos API)</div>
+
+  <div content class="class-binding-demo">
+    <p class="intro">
+      This example uses class binding to change the appearance of each todo
+      based on its completion state and the currently highlighted item.
+    </p>
+
+    <p *ngIf="isLoading" class="status">Loading todos...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <div *ngIf="!isLoading && !errorMessage" class="todo-grid">
+      <article
+        *ngFor="let todo of todos"
+        class="todo-card"
+        [class.is-complete]="todo.completed"
+        [class.is-pending]="!todo.completed"
+        [class.is-highlighted]="todo.id === highlightedTodoId"
+        (click)="highlightTodo(todo.id)"
+      >
+        <p class="eyebrow">Todo #{{ todo.id }}</p>
+        <h4>{{ todo.title }}</h4>
+        <p class="state">
+          {{ todo.completed ? "Completed task" : "Pending task" }}
+        </p>
+      </article>
+    </div>
+  </div>
+</app-card>

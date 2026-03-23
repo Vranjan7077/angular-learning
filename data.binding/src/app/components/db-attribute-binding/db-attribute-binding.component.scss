@@ -1,0 +1,48 @@
+.attribute-binding-demo {
+  display: grid;
+  gap: 16px;
+}
+
+.intro,
+.status {
+  margin: 0;
+  color: #334155;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.post-list {
+  display: grid;
+  gap: 12px;
+}
+
+.post-card {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #dbe4ff;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+.post-card h4,
+.post-card p {
+  margin: 0;
+}
+
+.post-card h4 {
+  color: #1e3a8a;
+  text-transform: capitalize;
+}
+
+.post-card p {
+  color: #475569;
+}
+
+.eyebrow {
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

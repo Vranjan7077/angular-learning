@@ -1,0 +1,38 @@
+<app-card>
+  <div title>Property Binding (Picsum Photos API)</div>
+
+  <div content class="property-binding-demo">
+    <p class="intro">
+      This example uses property binding to set image <code>src</code>,
+      <code>alt</code>, <code>title</code>, <code>width</code>, and
+      <code>height</code> from API data.
+    </p>
+
+    <p *ngIf="isLoading" class="status">Loading photos...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <div *ngIf="!isLoading && !errorMessage" class="photo-grid">
+      <article *ngFor="let photo of photos" class="photo-card">
+        <img
+          class="photo"
+          [src]="getImageUrl(photo)"
+          [alt]="getPhotoAlt(photo)"
+          [title]="'Photo by ' + photo.author"
+          [width]="240"
+          [height]="160"
+        />
+
+        <div class="photo-meta">
+          <h4>{{ photo.author }}</h4>
+          <p>Photo ID: {{ photo.id }}</p>
+          <p
+            [textContent]="
+              'Original size: ' + photo.width + ' x ' + photo.height
+            "
+          ></p>
+          <p [textContent]="'Aspect ratio: ' + getAspectRatio(photo)"></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</app-card>

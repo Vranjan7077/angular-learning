@@ -1,0 +1,64 @@
+.pipe-binding-demo {
+  display: grid;
+  gap: 16px;
+}
+
+.intro,
+.status {
+  margin: 0;
+  color: #334155;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.post-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.post-card {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #dbe4ff;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+.post-card h4,
+.post-card p,
+.post-card pre {
+  margin: 0;
+}
+
+.post-card h4 {
+  color: #1e3a8a;
+}
+
+.post-card p,
+.post-card pre {
+  color: #475569;
+}
+
+.post-card pre {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.04);
+  white-space: pre-wrap;
+}
+
+.eyebrow,
+.meta {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.eyebrow {
+  color: #0f766e;
+}
+
+.meta {
+  color: #2563eb;
+}

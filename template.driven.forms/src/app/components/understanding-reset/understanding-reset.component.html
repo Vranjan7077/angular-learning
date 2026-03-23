@@ -1,0 +1,39 @@
+<app-card>
+  <div title>10) Reset form state and values</div>
+
+  <div content>
+    <p class="lesson-text">
+      `form.reset()` clears values and marks controls as pristine/untouched again.
+    </p>
+
+    <form #form="ngForm" class="demo-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="resetName">Name</label>
+          <input id="resetName" name="name" ngModel />
+        </div>
+
+        <div class="field">
+          <label for="resetEmail">Email</label>
+          <input id="resetEmail" name="email" ngModel />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="button" (click)="form.reset()">Reset Empty</button>
+        <button class="btn btn-primary" type="button" (click)="resetWithDefaults(form)">
+          Reset With Defaults
+        </button>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">form touched: {{ form.touched }}</span>
+        <span class="status-item">form dirty: {{ form.dirty }}</span>
+      </div>
+    </div>
+
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</app-card>

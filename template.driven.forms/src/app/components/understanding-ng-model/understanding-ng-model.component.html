@@ -1,0 +1,23 @@
+<app-card>
+  <div title>1) `[(ngModel)]`: two-way data binding</div>
+  <div content>
+    <p class="lesson-text">
+      `[(ngModel)]` keeps input value and component property in sync in both directions.
+    </p>
+
+    <div class="field">
+      <label for="ngModelName">Name</label>
+      <input id="ngModelName" name="name" [(ngModel)]="name" #nameCtrl="ngModel" />
+      <span class="hint">Try typing and see model + control state update immediately.</span>
+    </div>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">model value: {{ name || '(empty)' }}</span>
+        <span class="status-item">control valid: {{ nameCtrl.valid }}</span>
+        <span class="status-item">touched: {{ nameCtrl.touched }}</span>
+        <span class="status-item">dirty: {{ nameCtrl.dirty }}</span>
+      </div>
+    </div>
+  </div>
+</app-card>

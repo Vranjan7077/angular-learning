@@ -1,0 +1,52 @@
+<div class="user-detail-container page-shell">
+  <div *ngIf="loading" class="loading-panel">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>Loading user details...</p>
+  </div>
+
+  <div *ngIf="error" class="error-box">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && user" class="user-detail">
+    <div class="back-link">
+      <a routerLink="/users">&larr; Back to Users</a>
+    </div>
+
+    <div class="user-header">
+      <h1>{{ user.name }}</h1>
+      <p class="subtitle">{{ user.company.name }}</p>
+    </div>
+
+    <div class="nested-routes">
+      <nav class="tabs">
+        <a
+          routerLink="."
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Profile
+        </a>
+        <a [routerLink]="['posts']" routerLinkActive="active">
+          Posts <span class="post-count">({{ postCount }})</span>
+        </a>
+      </nav>
+
+      <div class="nested-content">
+        <div
+          *ngIf="!router.url.includes('/posts')"
+          class="profile-panel surface-card"
+        >
+          <h2 class="section-title">Profile Details</h2>
+          <ul class="profile-list">
+            <li><strong>Email:</strong> {{ user.email }}</li>
+            <li><strong>Phone:</strong> {{ user.phone }}</li>
+            <li><strong>Website:</strong> {{ user.website }}</li>
+            <li><strong>Company:</strong> {{ user.company.name }}</li>
+          </ul>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

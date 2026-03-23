@@ -1,0 +1,28 @@
+<app-card>
+  <div title>7) `ngModelGroup`: nested object structure</div>
+  <div content>
+    <p class="lesson-text">
+      Group related controls under one key. The final `form.value` becomes a nested object.
+    </p>
+
+    <form #form="ngForm" class="demo-form">
+      <fieldset class="field-group" ngModelGroup="address">
+        <legend>Address group</legend>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="city">City</label>
+            <input id="city" name="city" ngModel />
+          </div>
+
+          <div class="field">
+            <label for="zip">Zip</label>
+            <input id="zip" name="zip" ngModel />
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</app-card>

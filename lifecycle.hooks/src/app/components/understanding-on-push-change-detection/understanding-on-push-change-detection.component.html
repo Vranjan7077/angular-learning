@@ -1,0 +1,12 @@
+<app-card>
+  <div title>OnPush Change Detection</div>
+  <p content>Strategy: `OnPush`</p>
+  <p content>Last operation: {{ lastOperation }}</p>
+  <button content type="button" (click)="reverseOrder()">Reverse List</button>
+  <ul content>
+    <li *ngFor="let country of countries">
+      <img [src]="country.flags.png" width="24" />
+      {{ country.name.common }}
+    </li>
+  </ul>
+</app-card>

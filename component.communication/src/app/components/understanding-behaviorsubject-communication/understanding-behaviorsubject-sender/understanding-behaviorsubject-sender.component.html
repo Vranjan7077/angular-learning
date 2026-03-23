@@ -1,0 +1,13 @@
+<app-card>
+    <div title>BehaviorSubject Sender</div>
+
+    <div content>
+        <p>
+            Sends data through <code>BehaviorSubjectService.updateMessage(...)</code>.
+        </p>
+        <div class="input-action">
+            <input #messageBox type="text" placeholder="Type BehaviorSubject message" aria-label="BehaviorSubject message input" />
+            <button type="button" (click)="sendMessage(messageBox.value)">Send Message</button>
+        </div>
+    </div>
+</app-card>

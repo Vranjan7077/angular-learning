@@ -1,0 +1,54 @@
+<app-card>
+  <div title>Language Controls</div>
+
+  <div content class="card-section">
+    <p class="section-text">
+      Update the name and switch between the available languages.
+    </p>
+
+    <div class="field-group">
+      <label for="name-input" class="field-label">Your name</label>
+      <input
+        id="name-input"
+        type="text"
+        [value]="userName"
+        (input)="onNameInput($event)"
+        placeholder="Enter your name"
+        class="name-input"
+      />
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Choose language</label>
+      <app-dropdown
+        [options]="supportedLangs"
+        [selected]="currentLang"
+        (selectedChange)="onLanguageSelect($event)"
+      >
+      </app-dropdown>
+    </div>
+
+    <div class="current-language">
+      <span class="current-language-label">Current language:</span>
+      <strong>{{ currentLanguageLabel }}</strong>
+    </div>
+
+    <div class="current-language">
+      <span class="current-language-label">Locale:</span>
+      <strong>{{ currentLang }}</strong>
+      <span class="meta-separator">|</span>
+      <span class="current-language-label">Direction:</span>
+      <strong>{{ currentDirection }}</strong>
+    </div>
+
+    <div class="language-list">
+      <span
+        class="language-chip"
+        *ngFor="let lang of supportedLangs"
+        [class.active]="lang === currentLang"
+      >
+        {{ lang.toUpperCase() }}
+      </span>
+    </div>
+  </div>
+</app-card>

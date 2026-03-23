@@ -1,0 +1,80 @@
+<app-card>
+  <div title>11) Full CRUD (Template-Driven) + json-server</div>
+
+  <div content>
+    <p class="lesson-text">
+      This component demonstrates create, read, update, and delete using `ngForm` and `[(ngModel)]` with a
+      `json-server` REST API.
+    </p>
+
+    <form #userForm="ngForm" class="demo-form" (ngSubmit)="saveUser(userForm)">
+      <div class="field-row">
+        <div class="field">
+          <label for="crudName">Name</label>
+          <input id="crudName" name="name" [(ngModel)]="formModel.name" required minlength="2" #nameCtrl="ngModel" />
+          <div class="error" *ngIf="nameCtrl.invalid && nameCtrl.touched">Name is required (min 2 chars).</div>
+        </div>
+
+        <div class="field">
+          <label for="crudEmail">Email</label>
+          <input id="crudEmail" name="email" [(ngModel)]="formModel.email" required email #emailCtrl="ngModel" />
+          <div class="error" *ngIf="emailCtrl.invalid && emailCtrl.touched">Valid email is required.</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="crudRole">Role</label>
+        <input id="crudRole" name="role" [(ngModel)]="formModel.role" required #roleCtrl="ngModel" />
+        <div class="error" *ngIf="roleCtrl.invalid && roleCtrl.touched">Role is required.</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">
+          {{ isEditing ? 'Update User' : 'Create User' }}
+        </button>
+        <button class="btn" type="button" (click)="cancelEdit()" *ngIf="isEditing">Cancel Edit</button>
+        <button class="btn" type="button" (click)="loadUsers()">Refresh List</button>
+      </div>
+    </form>
+
+    <div class="status-panel">
+      <div class="status-grid">
+        <span class="status-item">editing mode: {{ isEditing }}</span>
+        <span class="status-item">form valid: {{ userForm.valid }}</span>
+        <span class="status-item">users count: {{ users.length }}</span>
+        <span class="status-item">loading: {{ isLoading }}</span>
+      </div>
+    </div>
+
+    <div class="feedback error" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <div class="feedback success" *ngIf="successMessage">{{ successMessage }}</div>
+
+    <div class="list-wrapper">
+      <div class="hint" *ngIf="isLoading">Loading users...</div>
+      <table class="users-table" *ngIf="!isLoading && users.length > 0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td class="actions">
+              <button class="btn" type="button" (click)="editUser(user)">Edit</button>
+              <button class="btn" type="button" (click)="removeUser(user)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="hint" *ngIf="!isLoading && users.length === 0">No users found in API.</div>
+    </div>
+
+    <pre>{{ formModel | json }}</pre>
+  </div>
+</app-card>

@@ -1,0 +1,35 @@
+<app-card>
+  <div title>11) Conditional Validation</div>
+
+  <div content>
+    <form [formGroup]="form" class="demo">
+      <div class="field">
+        <label for="conditional-age">Age</label>
+        <input id="conditional-age" formControlName="age" type="number" />
+        <p class="hint">If age is greater than 60, email becomes required.</p>
+      </div>
+
+      <div class="field">
+        <label for="conditional-email">
+          Email
+          <span class="hint" *ngIf="isEmailRequired">(required now)</span>
+        </label>
+        <input id="conditional-email" formControlName="email" placeholder="Required if age > 60" />
+
+        <p class="error" *ngIf="form.controls.email.touched && form.controls.email.hasError('required')">
+          Email is required when age is above 60.
+        </p>
+
+        <p class="error" *ngIf="form.controls.email.touched && form.controls.email.hasError('email')">
+          Enter a valid email address.
+        </p>
+      </div>
+    </form>
+
+    <pre>{{ {
+      value: form.getRawValue(),
+      isEmailRequired: isEmailRequired,
+      emailErrors: form.controls.email.errors
+    } | json }}</pre>
+  </div>
+</app-card>

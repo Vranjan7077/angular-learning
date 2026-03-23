@@ -1,0 +1,14 @@
+<app-card>
+    <div title>Sender Component</div>
+
+    <div content>
+        <p>
+            Updates shared state via <code>SharedService.updateMessage(...)</code>.
+        </p>
+
+        <div class="input-action">
+            <input #senderInput type="text" placeholder="Type message for receiver" aria-label="Shared service message input" />
+            <button type="button" (click)="sendMessage(senderInput.value)">Send Message</button>
+        </div>
+    </div>
+</app-card>

@@ -1,0 +1,33 @@
+<app-card>
+  <div title>Signal Binding (Todos API)</div>
+
+  <div content class="signal-binding-demo">
+    <p class="intro">
+      This example stores todo state in signals and uses computed values for
+      the filtered list and summary counts.
+    </p>
+
+    <p *ngIf="isLoading()" class="status">Loading todos...</p>
+    <p *ngIf="errorMessage()" class="status error">{{ errorMessage() }}</p>
+
+    <div *ngIf="!isLoading() && !errorMessage()" class="toolbar">
+      <button type="button" class="chip" (click)="setStatusFilter('all')">
+        All ({{ summary().total }})
+      </button>
+      <button type="button" class="chip" (click)="setStatusFilter('completed')">
+        Completed ({{ summary().completed }})
+      </button>
+      <button type="button" class="chip" (click)="setStatusFilter('pending')">
+        Pending ({{ summary().pending }})
+      </button>
+    </div>
+
+    <div *ngIf="!isLoading() && !errorMessage()" class="todo-list">
+      <article *ngFor="let todo of filteredTodos()" class="todo-card">
+        <p class="eyebrow">Todo #{{ todo.id }}</p>
+        <h4>{{ todo.title }}</h4>
+        <p>{{ todo.completed ? 'Completed task' : 'Pending task' }}</p>
+      </article>
+    </div>
+  </div>
+</app-card>

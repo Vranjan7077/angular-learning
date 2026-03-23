@@ -1,0 +1,35 @@
+.feedback {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.success {
+  color: #166534;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  margin: 10px auto;
+}
+
+.list-wrapper {
+  overflow-x: auto;
+  margin: 10px auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.users-table th,
+.users-table td {
+  border: 1px solid #e2e8f0;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.users-table th {
+  background: #f8fafc;
+}

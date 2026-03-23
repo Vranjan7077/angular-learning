@@ -1,0 +1,29 @@
+<app-card>
+  <div title>Safe Navigation (Users API)</div>
+
+  <div content class="safe-navigation-demo">
+    <p class="intro">
+      This example uses the safe navigation operator so the template can read
+      nested properties even when the selected user is <code>null</code>.
+    </p>
+
+    <p *ngIf="isLoading" class="status">Loading user...</p>
+    <p *ngIf="errorMessage" class="status error">{{ errorMessage }}</p>
+
+    <button
+      *ngIf="!isLoading && !errorMessage"
+      type="button"
+      class="action-button"
+      (click)="clearSelection()"
+    >
+      Clear Selected User
+    </button>
+
+    <article class="user-card" *ngIf="!isLoading && !errorMessage">
+      <p class="eyebrow">Selected User</p>
+      <h4>{{ selectedUser?.name || 'No user selected' }}</h4>
+      <p>{{ selectedUser?.email || 'Email unavailable' }}</p>
+      <p>{{ selectedUser?.company?.name || 'Company unavailable' }}</p>
+    </article>
+  </div>
+</app-card>

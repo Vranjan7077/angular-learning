@@ -1,0 +1,44 @@
+<app-card>
+    <div title>Async Pipe</div>
+
+    <div content class="async-pipe">
+        <p class="hint">
+            The template uses <code>| async</code> to read Observable values.
+        </p>
+
+        <div class="actions">
+            <button class="btn btn-primary" type="button" [disabled]="isLoading" (click)="loadUser()">Load Next
+                User</button>
+            <button class="btn btn-secondary" type="button" [disabled]="isLoading" (click)="loadUsers()">Load All
+                Users</button>
+            <button class="btn btn-secondary" type="button" [disabled]="isLoading" (click)="loadRandomUsers()">Load
+                Random Users</button>
+            <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
+        </div>
+
+        <p class="loader" *ngIf="isLoading">Loading...</p>
+        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <ng-container *ngIf="mode === 'single' && (user$ | async) as user">
+            <div class="user-item">
+                <span class="user-id">{{ user.id }}</span>
+                <div>
+                    <p class="user-name">{{ user.name }}</p>
+                    <p class="user-email">{{ user.email }}</p>
+                </div>
+            </div>
+        </ng-container>
+
+        <ul class="user-list" *ngIf="(mode === 'all' || mode === 'random') && (users$ | async) as users">
+            <li class="user-item" *ngFor="let user of users">
+                <span class="user-id">{{ user.id }}</span>
+                <div>
+                    <p class="user-name">{{ user.name }}</p>
+                    <p class="user-email">{{ user.email }}</p>
+                </div>
+            </li>
+        </ul>
+
+        <p class="empty" *ngIf="mode === 'none' && !isLoading">Choose an action to render Observable data.</p>
+    </div>
+</app-card>
